@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="SnakeQuest.GameBackground"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SnakeQuest"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <!-- Button 样式-->
+    <UserControl.Resources>
+        <Style x:Key="buttoncss" TargetType="Button">
+            <Setter Property="Background" Value="#3498db"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#2980b9"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="150"/>
+
+            <!-- 鼠标悬停样式 -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#2980b9"/>
+                    <Setter Property="BorderBrush" Value="#3498db"/>
+                </Trigger>
+
+                <!-- 鼠标按下效果 -->
+                <Trigger Property="IsPressed" Value= "True">
+                    <Setter Property = "Background" Value= "#2c3e50"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Name="InitPicture" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="1,0,-1,0" Foreground="#FFE62A2A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Elephant" FontSize="72" FontWeight="Bold" TextDecorations="Underline"
+                   Text="Snake Quest" />
+        <Button x:Name="GameBegin" Grid.Row="1" Grid.Column="0" 
+                Style="{StaticResource buttoncss}">开始游戏</Button>
+        <Button x:Name="Rank" Grid.Row="1" Grid.Column="1"
+                Style="{StaticResource buttoncss}">查看排名</Button>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Consolas" FontStyle="Italic" VerticalAlignment="Center" FontSize="22" Foreground="#FFCAC4C4" >
+            Autor: Liu XunYa.<LineBreak/>
+            Contact ME: 2240938241@qq.com ^V^
+        </TextBlock>
+    </Grid>
+</UserControl>

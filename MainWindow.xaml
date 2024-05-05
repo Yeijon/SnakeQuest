@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeQuest"
+        xmlns:uc="clr-namespace:SnakeQuest"
         mc:Ignorable="d"
-        Title="Snake Game" Height="450" Width="800">
+        Title="Snake Game" Height="Auto" Width="Auto">
     <Grid>
+        
+        <local:GameBackground />
+        
 
     </Grid>
 </Window>

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeQuest", "SnakeQuest.csproj", "{49AAA095-00E5-47EA-9673-3EAAEF90F411}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeQuest", "SnakeQuest.csproj", "{49AAA095-00E5-47EA-9673-3EAAEF90F411}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Record Book MVVM", "C:\Users\liuliu勋娅\Desktop\Github\learn\Record Book MVVM\Record Book MVVM.csproj", "{F8893B19-E6AB-4BBD-BFA4-88E2719EDBCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{49AAA095-00E5-47EA-9673-3EAAEF90F411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49AAA095-00E5-47EA-9673-3EAAEF90F411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49AAA095-00E5-47EA-9673-3EAAEF90F411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8893B19-E6AB-4BBD-BFA4-88E2719EDBCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8893B19-E6AB-4BBD-BFA4-88E2719EDBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8893B19-E6AB-4BBD-BFA4-88E2719EDBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8893B19-E6AB-4BBD-BFA4-88E2719EDBCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

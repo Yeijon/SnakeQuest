@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SnakeQuest.model;
 
 namespace SnakeQuest
 {
@@ -20,15 +21,14 @@ namespace SnakeQuest
     /// </summary>
     public partial class GameBackground : UserControl
     {
+
+       
         public GameBackground()
         {
             InitializeComponent();
+            this.DataContext = this;
 
-            // 游戏界面图
-            ImageBrush img = new ImageBrush(
-                new BitmapImage(new Uri("/img/Snake_OG-logo.jpg",
-                UriKind.Relative)));
-            InitPicture.Background = img;
         }
+
     }
 }

@@ -20,6 +20,16 @@
             <Setter Property="Height" Value="50"/>
             <Setter Property="Width" Value="150"/>
 
+            <!-- 圆角样式 -->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="25" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             <!-- 鼠标悬停样式 -->
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -35,7 +45,11 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Name="InitPicture" >
+    <Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Snake_OG-logo.jpg" TileMode="None" Opacity="0.8"/>
+        </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
@@ -46,13 +60,13 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="1,0,-1,0" Foreground="#FFE62A2A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Elephant" FontSize="72" FontWeight="Bold" TextDecorations="Underline"
-                   Text="Snake Quest" />
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="1,0,-1,0" Foreground="#FFE62A2A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="72" FontWeight="Bold" TextDecorations="Underline"
+                   Text="Snake Quest" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="GameBegin" Grid.Row="1" Grid.Column="0" 
-                Style="{StaticResource buttoncss}">开始游戏</Button>
+                Style="{StaticResource buttoncss}" FontSize="22">开始游戏</Button>
         <Button x:Name="Rank" Grid.Row="1" Grid.Column="1"
-                Style="{StaticResource buttoncss}">查看排名</Button>
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Consolas" FontStyle="Italic" VerticalAlignment="Center" FontSize="22" Foreground="#FFCAC4C4" >
+                Style="{StaticResource buttoncss}" FontSize="22">查看排名</Button>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Consolas" FontStyle="Italic" VerticalAlignment="Center" FontSize="14" Foreground="#FFCAC4C4" >
             Autor: Liu XunYa.<LineBreak/>
             Contact ME: 2240938241@qq.com ^V^
         </TextBlock>

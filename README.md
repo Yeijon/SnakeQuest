@@ -1,6 +1,13 @@
 ﻿# SnakeQuest
 
 ## 项目记录
+
+### 项目特色？
+
+- 游戏有画图/音频等
+- 有页面切换
+- 考虑类库？
+
 ### 项目大纲
 1. 初始界面 图片，游戏名称，开始， 排名
 1.1 跑马灯
@@ -40,7 +47,109 @@ TODO:
 [wpf doc](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/overview/?view=netdesktop-8.0)
 [WPF 中的部分高级区域 doc](https://learn.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/?view=netframeworkdesktop-4.8)
 
+books:
+Pro WPF4.5 (4th)
+
+
 ### learn by practice!
+
+#### C#部分
+
+1. `int? x = null` ?符号表示Nullable类型，可以避免空引用
+
+2. partial
+> Partial classes allow you to split a
+class into two or more separate pieces for development and fuse them together in the compiled assembly.
+>> When you compile your application, the XAML that defines your user interface (such as Window1.
+xaml) is translated into a CLR (common language runtime) type declaration that is merged with the logic
+in your code-behind class file (such as Window1.xaml.cs) to form one single unit.
+
+#### 命令交互
+
+##### `RouterEventArgs`
+
+![image-20240506171116861](https://yeijon-note.oss-cn-beijing.aliyuncs.com/img/image-20240506171116861.png)
+
+WPF 应用程序通常包含许多元素，它们要么在 XAML 中声明，要么在代码中实例化。 应用程序的元素存在于其元素树中。 根据路由事件的定义方式，当事件在源元素上被引发时，它会： 
+
+-  通过元素树从源元素浮升到根元素（通常是页面或窗口）。
+
+- 通过元素树从根元素到源元素向下进行隧道操作。
+
+- 不会遍历元素树，只发生在源元素上。
+
+  
+
+  来看看下面的一部分元素树：
+
+  ```xaml
+  <Border Height="30" Width="200" BorderBrush="Gray" BorderThickness="1">
+      <StackPanel Background="LightBlue" Orientation="Horizontal" Button.Click="YesNoCancelButton_Click">
+          <Button Name="YesButton">Yes</Button>
+          <Button Name="NoButton">No</Button>
+          <Button Name="CancelButton">Cancel</Button>
+      </StackPanel>
+  </Border>
+  ```
+
+  这三个按钮中的每一个都是潜在的 [Click](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.primitives.buttonbase.click#system-windows-controls-primitives-buttonbase-click) 事件源。 单击其中一个按钮时，它会引发 `Click` 事件，从按钮浮升到根元素。 [Button](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.button) 和 [Border](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.border) 元素没有附加事件处理程序，但 [StackPanel](https://learn.microsoft.com/zh-cn/dotnet/api/system.windows.controls.stackpanel) 有。 树中较高、未显示的其他元素可能也附加了 `Click` 事件处理程序。 当 `Click` 事件到达 `StackPanel` 元素时，WPF 事件系统将调用附加到它的 `YesNoCancelButton_Click` 处理程序。 示例中 `Click` 事件的事件路由为：`Button`\>`StackPanel`\>`Border`\> 连续的父元素。
+
+```c#
+private void YesNoCancelButton_Click(object sender, RoutedEventArgs e)
+{
+    FrameworkElement sourceFrameworkElement = e.Source as FrameworkElement;
+    switch (sourceFrameworkElement.Name)
+    {
+        case "YesButton":
+            // YesButton logic.
+            break;
+        case "NoButton":
+            // NoButton logic.
+            break;
+        case "CancelButton":
+            // CancelButton logic.
+            break;
+    }
+    e.Handled = true;
+}
+```
+
+关于如何创建一个 `RouteEventArgs`详见书籍
+
+
+
+###### WPF Events
+
+![image-20240506172449340](https://yeijon-note.oss-cn-beijing.aliyuncs.com/img/image-20240506172449340.png)
+
+
+
+
+
+
+
+
+
+##### 容器变换
+1. 在主窗口的XAML文件中定义两个UserControl的容器，并使用`Visibility`属性来控制它们的显示与隐藏：
+```xml
+<Grid>
+    <local:UserControlA x:Name="userControlA" Visibility="Visible"/>
+    <local:UserControlB x:Name="userControlB" Visibility="Collapsed"/>
+</Grid>
+```
+
+2. 在页面A的按钮点击事件中，设置页面A的Visibility为Collapsed，同时设置页面B的Visibility为Visible：
+```csharp
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    userControlA.Visibility = Visibility.Collapsed;
+    userControlB.Visibility = Visibility.Visible;
+}
+```
+---
+
+
 
 #### 控件
 

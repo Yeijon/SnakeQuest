@@ -63,12 +63,15 @@
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Margin="1,0,-1,0" Foreground="#FFE62A2A" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Snap ITC" FontSize="72" FontWeight="Bold" TextDecorations="Underline"
                    Text="Snake Quest" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="GameBegin" Grid.Row="1" Grid.Column="0" 
-                Style="{StaticResource buttoncss}" FontSize="22">开始游戏</Button>
-        <Button x:Name="Rank" Grid.Row="1" Grid.Column="1"
-                Style="{StaticResource buttoncss}" FontSize="22">查看排名</Button>
-        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Consolas" FontStyle="Italic" VerticalAlignment="Center" FontSize="14" Foreground="#FFCAC4C4" >
+                Style="{StaticResource buttoncss}" FontSize="22" Click="GameBegin_Click">开始游戏</Button>
+        <Button x:Name="GameRank" Grid.Row="1" Grid.Column="1"
+                Style="{StaticResource buttoncss}" FontSize="22" Click="GameRank_Click">查看排名</Button>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontFamily="Consolas" FontStyle="Italic" VerticalAlignment="Center" FontSize="16" Foreground="#FFCAC4C4" >
             Autor: Liu XunYa.<LineBreak/>
             Contact ME: 2240938241@qq.com ^V^
         </TextBlock>
+        <Button x:Name="GameSetting" Grid.Row="1" Grid.Column="0" 
+            Style="{StaticResource buttoncss}" FontSize="22" Click="GameSetting_Click" Content="游戏设置" Margin="325,30,325,32" Grid.ColumnSpan="2"/>
     </Grid>
+
 </UserControl>

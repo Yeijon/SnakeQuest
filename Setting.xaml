@@ -1,0 +1,52 @@
+﻿<Window x:Class="SnakeQuest.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnakeQuest"
+        mc:Ignorable="d"
+        Title="Setting" Height="300" Width="400">
+    <Grid>
+        <TabControl >
+            <TabItem Header="Help" >
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFEFD4D4" Offset="0"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <StackPanel>
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="/bg.jpg" Opacity="0.5" Stretch="Fill"/>
+                    </StackPanel.Background>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5" Foreground="#FFEE0808" FontWeight="Bold" FontSize="16" FontFamily="Arial"> 欢迎来到 SnakeQuest 游戏！</TextBlock>
+                    <TextBlock Margin="5,2,0,5" Foreground="Black">游戏按键：</TextBlock>
+                    <TextBlock Margin="20,10,20,10" TextWrapping="Wrap" Height="30">除了基本的上下左右键外，格外有 H（左） J（下） K（上） L（右）控制</TextBlock>
+                    <TextBlock Margin="20,0,20,0">空格键 可以退出游戏</TextBlock>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Control">
+                <TabItem.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="#FFF0F0F0"/>
+                        <GradientStop Color="#FFF8DADA" Offset="1"/>
+                    </LinearGradientBrush>
+                </TabItem.Background>
+                <Grid Margin="1,0,-1,0" Background="#FFFFF7F7">
+
+                    <Label Content="贪吃蛇的速度" HorizontalAlignment="Left" Height="25" Margin="36,71,0,0" VerticalAlignment="Top" Width="85" Background="#FFF6D9D9"/>
+                    <DockPanel Margin="136,61,3,145">
+                        <Slider Name="speedvalue" Height="24" Width="170" Maximum="300" Minimum="90"  TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" Value="200" ValueChanged="speedvalue_ValueChanged"/>
+                        <TextBox Name="gamespeed" Text="{Binding ElementName=speedvalue, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" Height="20" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
+                    </DockPanel>
+                    <Label Content="游戏声音" HorizontalAlignment="Left" Height="25" Margin="37,25,0,0" VerticalAlignment="Top" Width="60" Background="#FFF6D9D9" Grid.Row="1" />
+                    <RadioButton x:Name="MusicRadioButton"  Content="开启/关闭" HorizontalAlignment="Left" Height="15" Margin="136,36,0,0" VerticalAlignment="Top" Width="100" Checked="RadioButton_Checked"/>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </Grid>
+</Window>

@@ -9,7 +9,7 @@ using System.Windows.Media;
 namespace SnakeQuest.model
 {
     
-    public class SnakePart : GamePage
+    public class SnakePart
     {
         // 定位蛇
         public UIElement UiElement { get; set; }

@@ -98,11 +98,6 @@ namespace SnakeQuest
 
         #endregion
 
-        // 通过时间检测让蛇移动
-        private void GameTickTimer_Tick(object sender, EventArgs e)
-        {
-            MoveSnake();
-        }
 
         #region 与前端交互的控制函数
 

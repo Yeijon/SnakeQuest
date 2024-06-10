@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SnakeQuest.model;
+using Database;
+using System.ComponentModel;
 
 namespace SnakeQuest
 {
@@ -26,7 +28,7 @@ namespace SnakeQuest
             InitializeComponent();
 
             // 数据库连接
-            database = new Database();
+            database = new database();
             myconnection = database.ConnectSQL();
 
             // 加载后就刷新一下加载数据库
@@ -37,7 +39,7 @@ namespace SnakeQuest
         }
 
         // 数据库连接
-        private Database database;
+        private database database;
         private SQLiteConnection myconnection;
 
 
@@ -67,6 +69,16 @@ namespace SnakeQuest
 
         #endregion
 
+
+        private void delete()
+        {
+            // TODO: FINISTH
+            string name = searchbox.Text;
+            database.DeleteData(myconnection, name);
+
+        }
+
+
         /// <summary>
         /// 刷新读取数据库
         /// </summary>
@@ -76,6 +88,45 @@ namespace SnakeQuest
         {
             refresh();
 
+        }
+    
+        /// <summary>
+        /// 点击列头进行排序
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sort_Click(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is GridViewColumnHeader)
+            {
+                //获得点击的列
+                GridViewColumn clickedColumn = (e.OriginalSource as GridViewColumnHeader).Column;
+                if (clickedColumn != null)
+
+                {
+                    //Get binding property of clicked column
+
+                    string bindingProperty = (clickedColumn.DisplayMemberBinding as Binding).Path.Path;
+                    //获得listview项是如何排序的
+                    SortDescriptionCollection sdc = this.ItemList.Items.SortDescriptions;
+
+                    //按升序进行排序
+                    ListSortDirection sortDirection = ListSortDirection.Ascending;
+                    if (sdc.Count > 0)
+                    {
+                        SortDescription sd = sdc[0];
+                        sortDirection = (ListSortDirection)((((int)sd.Direction) + 1) % 2);
+                        sdc.Clear();
+                    }
+                    sdc.Add(new SortDescription(bindingProperty, sortDirection));
+                }
+            }
+        }
+
+        private void delete_button_Click(object sender, RoutedEventArgs e)
+        {
+            delete();
+            refresh();
         }
     }
 }

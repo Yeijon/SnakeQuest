@@ -14,6 +14,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using SnakeQuest.model;
+using Database;
 
 namespace SnakeQuest
 {
@@ -40,26 +41,24 @@ namespace SnakeQuest
                 
             }
 
-
             gameTickTimer.Tick += GameTickTimer_Tick;
 
-            DrawGameArea();
+            DrawGameArea(); // 当该页面被加载就画出游戏背景（黑白方块交错构成）
             StartNewGame();
 
             // 创建数据库连接
-            database = new Database();
+            database = new database();
             myconnection = database.ConnectSQL();
             database.CreatTable(myconnection);
 
         }
-
 
         #region 成员变量：游戏的设定
         // 游戏声音
         private MediaPlayer player;
 
         // 数据库
-        private Database database;
+        private database database;
         private SQLiteConnection myconnection;
 
         // 绘图相关
@@ -98,16 +97,20 @@ namespace SnakeQuest
 
         #endregion
 
-
         #region 与前端交互的控制函数
 
-        // TODO: 当 GamePage页面受“开始”按钮加载后，页面初始化控制事件函数
+        // 当 GamePage页面受“开始”按钮加载后，页面初始化控制事件函数 舍弃!
         private void GamePage_Initialized(object sender, EventArgs e)
         {
             DrawGameArea(); // 当该页面被加载就画出游戏背景（黑白方块交错构成）
             StartNewGame(); // 加载游戏
         }
 
+        // 通过时间检测让蛇移动
+        private void GameTickTimer_Tick(object sender, EventArgs e)
+        {
+            MoveSnake();
+        }
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
             SnakeDirection originalSnakeDirection = snakeDirection;
@@ -135,6 +138,15 @@ namespace SnakeQuest
             }
             if (snakeDirection != originalSnakeDirection)
                 MoveSnake();
+        }
+
+        // 退出游戏界面并且关闭背景音乐
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (SettingUpdateResponse.musicOK)
+            {
+                player.Stop();
+            }
         }
 
         #endregion
@@ -444,12 +456,5 @@ namespace SnakeQuest
 
         #endregion
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            if (SettingUpdateResponse.musicOK)
-            {
-                player.Stop();
-            }
-        }
     }
 }

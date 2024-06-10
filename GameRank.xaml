@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeQuest"
         mc:Ignorable="d"
-        Title="GameRank" Height="450" Width="300" ResizeMode="CanResize" Background="{x:Null}">
+        Title="GameRank" Height="450" Width="500" ResizeMode="CanResize" Background="{x:Null}">
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Setter Property="Foreground" Value="Black"/>
@@ -112,19 +112,24 @@
         <Grid.Background>
             <ImageBrush ImageSource="/bg.jpg" Opacity="0.8"/>
         </Grid.Background>
-        <ListView x:Name="ItemList" HorizontalAlignment="Center" Height="300" Margin="0,108,0,0" VerticalAlignment="Top" Width="250" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="16" FontFamily="Consolas">
+        <Button x:Name="refresh_button" Content="刷新"  HorizontalAlignment="Left" Height="27" Margin="378,73,0,0" VerticalAlignment="Top" Width="72" Click="refresh_button_Click"/>
+        <ListView x:Name="ItemList" HorizontalAlignment="Center" Height="300" Margin="0,108,0,0" VerticalAlignment="Top" Width="400" d:ItemsSource="{d:SampleData ItemCount=5}" FontSize="16" FontFamily="Consolas"
+                  GridViewColumnHeader.Click="sort_Click"
+                  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" Width="70"  DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Score" Width="50" DisplayMemberBinding="{Binding Score}"/>
-                    <GridViewColumn Header="Time" Width="130" DisplayMemberBinding="{Binding Time}"/>
+                    <GridViewColumn Header="用户" Width="100"  DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="得分" Width="70" DisplayMemberBinding="{Binding Score}"/>
+                    <GridViewColumn Header="游玩时间" Width="230" DisplayMemberBinding="{Binding Time}"/>
 
 
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox HorizontalAlignment="Center" Height="50" Margin="0,15,0,0" TextWrapping="Wrap" Text="Rank" VerticalAlignment="Top" Width="140" FontFamily="Cooper Black" FontSize="48" FontStyle="Italic" Background="{x:Null}" Foreground="#FF2E2222"/>
-        <Button x:Name="refresh_button" Content="Refresh"  HorizontalAlignment="Left" Height="27" Margin="205,73,0,0" VerticalAlignment="Top" Width="72" Click="refresh_button_Click"/>
+        <TextBox x:Name="searchbox" HorizontalAlignment="Left" Height="25" Margin="65,75,0,0" TextWrapping="Wrap" 
+                 Text="{Binding ElementName=ItemList, Path=SelectedItem.Name, Mode=OneWay}" VerticalAlignment="Top" Width="100" TextAlignment="Center" FontSize="14"/>
+        <Button x:Name="delete_button" Content="删除"  HorizontalAlignment="Left" Height="27" Margin="288,73,0,0" VerticalAlignment="Top" Width="72" Click="delete_button_Click"/>
+        <Label Content="排名" HorizontalAlignment="Center" Height="40" Margin="0,25,0,0" VerticalAlignment="Top" Width="60" FontSize="24"/>
 
     </Grid>
 </Window>

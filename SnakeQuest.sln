@@ -5,6 +5,14 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnakeQuest", "SnakeQuest.csproj", "{49AAA095-00E5-47EA-9673-3EAAEF90F411}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "..\Database\Database.csproj", "{D38D287E-B8AB-480D-95D7-B0A17D626C4C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{AE9B0420-19D0-477B-A4CC-4130EDD0900C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sqlite CRUD", "..\..\..\..\..\..\inbox\CSharp-Sqlite-CRUD-Operations-main\CSharp-Sqlite-CRUD-Operations-main\Sqlite CRUD\Sqlite CRUD.csproj", "{BCBD881A-8B49-40F5-93BE-88E13E4BFDD3}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "..\Setup1\Setup1.vdproj", "{AFB34303-0C7A-4416-ADBC-281BAF4ABB94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,18 @@ Global
 		{49AAA095-00E5-47EA-9673-3EAAEF90F411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49AAA095-00E5-47EA-9673-3EAAEF90F411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49AAA095-00E5-47EA-9673-3EAAEF90F411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38D287E-B8AB-480D-95D7-B0A17D626C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38D287E-B8AB-480D-95D7-B0A17D626C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38D287E-B8AB-480D-95D7-B0A17D626C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38D287E-B8AB-480D-95D7-B0A17D626C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE9B0420-19D0-477B-A4CC-4130EDD0900C}.Debug|Any CPU.ActiveCfg = Debug
+		{AE9B0420-19D0-477B-A4CC-4130EDD0900C}.Release|Any CPU.ActiveCfg = Release
+		{BCBD881A-8B49-40F5-93BE-88E13E4BFDD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCBD881A-8B49-40F5-93BE-88E13E4BFDD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCBD881A-8B49-40F5-93BE-88E13E4BFDD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCBD881A-8B49-40F5-93BE-88E13E4BFDD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB34303-0C7A-4416-ADBC-281BAF4ABB94}.Debug|Any CPU.ActiveCfg = Debug
+		{AFB34303-0C7A-4416-ADBC-281BAF4ABB94}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

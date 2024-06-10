@@ -8,8 +8,6 @@
         mc:Ignorable="d"
         Title="Snake Game" Height="520" Width="850">
     <Grid x:Name="mainwin" Margin="0,0,0,0">
-        <Menu Height="30" Margin="0,0,0,475" Background="{x:Null}"></Menu>
-        
 
     </Grid>
 </Window>

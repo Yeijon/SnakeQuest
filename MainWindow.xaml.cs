@@ -20,7 +20,6 @@ namespace SnakeQuest
         {
             InitializeComponent();
             // 游戏窗体界面出现的话，那么游戏开始界面需要最小化
-            // TEST
             if (!IsWindowOpen<GameWindow>())
             {
                 var gameBackground = new GameBackground();

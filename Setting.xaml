@@ -35,7 +35,7 @@
                 </TabItem.Background>
                 <Grid Margin="1,0,-1,0" Background="#FFFFF7F7">
 
-                    <Label Content="贪吃蛇的速度" HorizontalAlignment="Left" Height="25" Margin="36,71,0,0" VerticalAlignment="Top" Width="85" Background="#FFF6D9D9"/>
+                    <Label Content="时间间隔" HorizontalAlignment="Left" Height="25" Margin="36,71,0,0" VerticalAlignment="Top" Width="60" Background="#FFF6D9D9"/>
                     <DockPanel Margin="136,61,3,145">
                         <Slider Name="speedvalue" Height="24" Width="170" Maximum="300" Minimum="90"  TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" Value="200" ValueChanged="speedvalue_ValueChanged"/>
                         <TextBox Name="gamespeed" Text="{Binding ElementName=speedvalue, Path=Value, UpdateSourceTrigger=PropertyChanged}" Width="40" Height="20" TextAlignment="Center" TextChanged="TextBox_TextChanged"/>
